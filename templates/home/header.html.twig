@@ -1,0 +1,54 @@
+<!-- Navigation -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a href="{{ path('home') }}"><img class="logo" src="{{ asset('assets') }}/img/gunaydiin.png" style="height:60px;width:190px"  alt="Logo"></a>
+        </div>
+        <nav class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('home') }}">Ana Sayfa</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kurumsal<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+
+                        <li><a href="/mesaj">Günaydınlardan Mesaj</a></li>
+                        <li><a href="/about">Hakkımızda</a></li>
+                        <li><a href="/bizkimiz">Biz Kimiz</a></li>
+                        <li><a href="/misyonvevizyon">Misyon ve Vizyon</a></li>
+                        <li><a href="/contact">Bize Ulaşın</a></li>
+
+                    </ul>
+                </li>
+
+
+                <li><a href="/contact">İletişim</a></li>
+                <li><a href="/register">Üye Ol</a></li>
+                <li><a href="/user/emlak/new">Ücretsiz ilan Ver</a></li>
+
+                {% if app.user %}   <!--  eger loginse aşagıdaki bilgileri getirsin-->
+                    <li>
+                        <a href="/user"> <img src="{{ asset('uploads/images/'~ app.user.image)}}"  style="height: 30px"  >
+                            {{ app.user.name }} </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="/loginuser">Giriş Yap</a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </nav>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</div>
+
+

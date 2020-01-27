@@ -1,0 +1,27 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New Category Page{% endblock %}
+{% block body %}
+     !--main-container-part-->
+<div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+  </div>
+<!--End-breadcrumbs-->
+ <div class="row-fluid">
+      <div class="span12">
+        
+   
+
+ 
+    {{ include('admin/category/_form.html.twig') }}
+
+    <a href="{{ path('category_index') }}">back to list</a>
+
+    </div>
+   </div>
+
+
+</div>
+{% endblock %}

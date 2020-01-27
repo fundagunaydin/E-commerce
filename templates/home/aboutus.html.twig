@@ -1,0 +1,59 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}Hakkımızda {{ setting[0].title }} {% endblock %}
+{% block keywords %} {{ setting[0].keywords }}{% endblock %}
+{% block description %}{{ setting[0].description }} {% endblock %}
+
+
+{% block body %}
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/">AnaSayfa</a></li>
+                        <li><a href="#">Kurumsal</a></li>
+                        <li>Hakkımızda</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Hakkımızda</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Features -->
+    <section class="page-section padding-30">
+        <div class="container feature">
+            <div class="row text-center">
+                <div>
+                    <div class="col-md-3 col-sm-6">
+                        <div>
+
+
+                            {{ setting[0].aboutus | raw }}
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Loads Bootstrap Main JS -->
+    <script src="{{ 'assets' }}/bootstrap/js/bootstrap.min.js"></script>
+
+
+{% endblock %}

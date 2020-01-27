@@ -1,0 +1,97 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Setting index{% endblock %}
+
+{% block body %}
+    <SCRIPT language="JavaSript" type="text/javascript">
+        function openWin( windowURL, windowName, windowFeatures ) { window.open( windowURL, windowName, windowFeatures ); }
+    </SCRIPT>
+    <div id="content">
+<!--breadcrumbs-->
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a><a href="#">Setting</a></div>
+  </div>
+<!--End-breadcrumbs-->
+
+    <div class="row-fluid">
+        <div class="widget-title bg_lg"><span class="icon"><i class="icon-align-justify"></i></span>
+          <h5>Setting Table</h5>
+        </div>
+    
+
+    <div class="widget-content nopadding">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+               
+                <th>Company</th>
+           
+                <th>Email</th>
+                <th>Status</th>
+                <th>Show</th>
+                <th>Edit</th>
+                <th>About Us</th>
+                <th>Reference</th>
+                <th>Contact</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for setting in settings %}
+            <tr>
+                <td>{{ setting.id }}</td>
+                <td>{{ setting.title }}</td>
+                <td>{{ setting.company }} </td>
+                <td>{{ setting.email }}</td>
+                <td>{{ setting.status }}</td>
+                <td>
+                    <a href="{{ path('setting_show', {'id': setting.id}) }}" class="btn btn-success">Show</a>
+                </td>
+                <td>
+                    <a href="{{ path('admin_setting_edit', {'id': setting.id}) }}" class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a href="javascript:openWin('{{path('admin_setting_editabout', {'id':setting.id }) }} ','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scroolBars=yes,resizable=no,width=700,height=400');">
+                        <i class="fa fa-address-card fa-2x"></i>
+
+
+                    </a>
+
+                </td>
+
+                <td>
+                    <a href="javascript:openWin('{{path('admin_setting_editreference', {'id':setting.id }) }} ','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scroolBars=yes,resizable=no,width=700,height=400');">
+                        <i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+                    </a>
+
+                </td>
+
+                <td>
+                    <a href="javascript:openWin('{{path('admin_setting_editcontact', {'id':setting.id }) }} ','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scroolBars=yes,resizable=no,width=700,height=400');">
+                        <i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i>
+                    </a>
+
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="20">no records found</td>
+
+            
+            </tr>
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+
+<header>
+    <div id="carousel-header" class="carousel slide">
+        <!-- Indicators -->
+            <ol class="carousel-indicators hidden-xs">
+                <li data-target="#carousel-header" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-header" data-slide-to="1" class=""></li>
+                <li data-target="#carousel-header" data-slide-to="2" class=""></li>
+                <li data-target="#carousel-header" data-slide-to="3" class=""></li>
+                <li data-target="#carousel-header" data-slide-to="4" class=""></li>
+                <li data-target="#carousel-header" data-slide-to="5" class=""></li>
+            </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            {% set count=0 %}
+            {% for rs in slider %}
+                {% set count=count+1 %}
+                <div class="item {% if count==1 %}active{% endif %}">
+                    <a href="{{ path('emlak_show', {'id': rs.id}) }}">
+                        <img src="{{ asset('uploads/images/' ~ rs.image) }}" class="img-responsive img-full"  style="height: 800px; width: 1900px" alt="" />
+                    </a>
+                    <div class="carousel-caption">
+                        <h3>{{ rs.title }}</h3>
+                        <p>{{ rs.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <a class="left carousel-control" href="#carousel-header" data-slide="prev">
+                <span class="icon-prev"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-header" data-slide="next">
+                <span class="icon-next"></span>
+            </a>
+        </div>
+
+
+    </div>
+
+    <hr class="divider margin-top-30 margin-bottom-30">
+
+</header>

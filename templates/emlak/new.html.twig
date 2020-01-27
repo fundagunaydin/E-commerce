@@ -1,0 +1,48 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ app.user.name }} Profile{% endblock %}
+
+{% block body %}
+
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">User</a></li>
+                        <li>My Profile</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>My Profile</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page-section padding-30">
+
+        <div class="container">
+            <div class="row">
+                <!-- Content -->
+
+                <div class="col-md-9 col-md-push-3">
+                    <div class="blog-listing">
+                        <article>
+                            <h2>Kullanıcı İlan Bilgileri</h2>
+                            <hr class="title-underline"><p>
+
+                                {{ include('emlak/_form.html.twig') }}
+                            </p>
+                        </article>
+                    </div>
+                </div>
+                {{ include('user/usermenu.html.twig') }}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

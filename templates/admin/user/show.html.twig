@@ -1,0 +1,68 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ path('admin_user_index') }}">Users</a> <a href="#" class="current">Show</a> </div>
+    </div>
+    <!--End-breadcrumbs-->
+    <!--Chart-box-->
+    <div class="row-fluid">
+
+        <div class="widget-title bg_lg"><span class="icon"><i class="icon-align-justify"></i></span>
+            <h5>Show </h5>
+
+        </div>
+
+    </div>
+
+    <div class="widget-content nopadding">
+        <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ user.name }}</td>
+            </tr>
+            <tr>
+                <th>Surname</th>
+                <td>{{ user.surname }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ user.image }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ user.status }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    </div><br>
+
+</div>
+{% endblock %}
+

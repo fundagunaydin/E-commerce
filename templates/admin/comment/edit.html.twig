@@ -1,0 +1,28 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Comment List{% endblock %}
+
+{% block body %}
+
+<!--main-container-part-->
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i
+                        class="icon-home"></i>Home</a><a href="{{ path('admin_comment_index') }}">Comment</a> <a href="#" class="current">Edit</a></div>
+    </div>
+    <!--End-breadcrumbs-->
+
+    <div class="row-fluid">
+        <h5> </h5>
+        <div class="span12">
+            <h5>Edit Comment</h5>
+    {{ include('admin/comment/_form.html.twig', {'button_label': 'Update'}) }}
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,26 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit User List{% endblock %}
+
+{% block body %}
+
+    <!--main-container-part-->
+    <div id="content">
+        <!--breadcrumbs-->
+        <div id="content-header">
+            <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i
+                            class="icon-home"></i>Home</a><a href="{{ path('admin_user_index') }}">Users</a><a href="#" class="current">Edit</a></div>
+        </div>
+        <!--End-breadcrumbs-->
+
+        <div class="row-fluid">
+            <h5> Edit User</h5>
+            <div class="span12">
+            {{ include('admin/user/_form.html.twig', {'button_label': 'Update'}) }}<br>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+

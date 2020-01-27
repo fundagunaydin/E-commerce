@@ -1,0 +1,16 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <div id="content">
+
+        <div id="content-header">
+            <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+                    Home</a> <a href="#">User</a> <a href="#" class="current">New</a></div>
+        </div>
+        <div class="span12">
+            {{ include('admin/user/_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

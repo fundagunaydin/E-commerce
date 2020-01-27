@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <title>GünaydınEmlak Admin</title>
+    <meta charset="UTF-8"/>
+    {% include('admin/head.html.twig') %}
+
+</head>
+<body>
+<div id="loginbox">
+
+    <form method="post" id="loginform" class="form-vertical">
+
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+       <div class="control-group normal_text">
+            <h3><img src="{{ asset('assets') }}/admin/img/gunaydiin.png" style="height:75px;width:218px" alt="Logo"/></h3>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_lg"><i class="icon-user"> </i></span>
+                    <input type="email" placeholder="Email" value="{{ last_username }}" name="email" id="inputEmail"
+                           class="form-control" required autofocus/>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                    <input type="password" placeholder="Password" name="password" id="inputPassword"
+                           class="form-control" required/>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+        <div class="form-actions">
+            <span class="pull-left"><a href="/register" class="flip-link btn btn-info" id="to-recover">Yeni Üye Oluştur </a></span>
+            <span class="pull-right">
+                        <input type="submit" value="Giriş Yap " class="btn btn-success"/> </span>
+        </div>
+
+    </form>
+
+
+
+
+</div>
+
+<script src="{{ asset('assets') }}/admin/js/jquery.min.js"></script>
+
+<script src="{{ asset('assets') }}/admin/js/matrix.login.js"></script>
+
+</body>
+
+</html>

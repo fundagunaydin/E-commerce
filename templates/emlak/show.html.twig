@@ -1,0 +1,126 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ app.user.name }} Profile{% endblock %}
+
+{% block body %}
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="">AnaSayfa</a></li>
+                    <li><a href="">Kullanıcı</a></li>
+                    <li>İlanlarım</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>İlanlarım</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Right Sidebar Container  -->
+<section class="page-section padding-30">
+
+    <div class="container">
+        <div class="row">
+            <!-- Content -->
+            <div class="col-md-9 col-md-push-3">
+                <div class="blog-listing">
+                    <article>
+                        <h2>İlan Detay Bilgileri</h2>
+                        <hr class="title-underline"><p>
+                        <div class="widget-content nopadding">
+                            <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ emlak.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ emlak.title }}</td>
+            </tr>
+            <tr>
+                <th>Keywords</th>
+                <td>{{ emlak.keywords }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ emlak.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ emlak.image }}</td>
+            </tr>
+            <tr>
+                <th>Star</th>
+                <td>{{ emlak.star }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td>{{ emlak.address }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ emlak.phone }}</td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{{ emlak.fax }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ emlak.email }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ emlak.city }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ emlak.country }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ emlak.location }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ emlak.status }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ emlak.createdAt ? emlak.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ emlak.updatedAt ? emlak.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ emlak.detail }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ emlak.userid }}</td>
+            </tr>
+        </tbody>
+    </table>
+                        </div>
+
+                    </article>
+                </div>
+            </div>
+            {{ include('user/usermenu.html.twig') }}
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

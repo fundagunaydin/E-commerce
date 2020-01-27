@@ -1,0 +1,59 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}Günaydınlardan Mesaj{{ setting[0].title }} {% endblock %}
+{% block keywords %} {{ setting[0].keywords }}{% endblock %}
+{% block description %}{{ setting[0].description }} {% endblock %}
+
+
+{% block body %}
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/">AnaSayfa</a></li>
+                        <li><a href="#">Kurumsal</a></li>
+                        <li>Günaydınlardan Mesaj</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Günaydınlardan Mesaj</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Width Container  -->
+    <section class="page-section padding-30">
+        <div class="container">
+            <div class="row">
+                <!-- Content -->
+                <div class="col-md-12">
+                    <h3>Kurucularımızın Mesajı</h3>
+                    <p class="lead">
+                        Biz Günaydın Şirketler Grubu olarak hem bugün hem de gelecek için tasarlanmış yüksek kaliteli yaşam alanları inşa ediyoruz ve projelerimizin altına imzamızı atmaktan gurur duyuyoruz. İlkemiz, topluma hizmet etmek ve ülkemizin refahına sonsuz önem vermektir.
+                    </p>
+                    <img class="pull-right" src= "{{ asset('assets') }}/img/group.jpg"  style="height: 230px;width: 200" >
+                    <p>  Kendimizi topluma karşı sorumlu hissediyoruz yalnızca inşaat, turizm ve enerji projeleriyle değil; eğitim ve çevre anlamında da topluma katkıda bulunmayı kendimize görev biliyoruz.</p>
+                    <p> Çünkü gönülden inanıyoruz ki; en iyi yatırım geleceğe yapılan yatırımdır ve kalkınma eğitimli vatandaşlar sayesinde olur. </p>
+                    <p>Çevreye karşı duyarlıyız, doğal kaynakları arttırarak toplumun yararına sunuyoruz. Biz, Günaydın Şirketler Grubu olarak müşterilerimizin yaşam kalitesini yükseltecek yaşam alanları inşa etmeye; işlevsel ve estetik bağlamda birebir örtüşen güvenli yuvalar kurmaya devam edeceğiz. Her girişimimizde, insanoğluna olan bağımlılığımızı sürdüreceğiz. </p>
+                    <blockquote> Mustafa GÜNAYDIN <p>Hasan GÜNAYDIN</p><p>&ldquo;Günaydın İnşaat Şirket Ortakları&rdquo;</p></blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Loads Bootstrap Main JS -->
+    <script src="{{ 'assets' }}/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ 'assets' }}/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+    <meta name="author" content="Andreas Lautenschlager - www.lautenschlager.de">
+
+
+
+{% endblock %}

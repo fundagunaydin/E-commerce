@@ -1,0 +1,29 @@
+<!--Header-part-->
+
+<div id="header">
+    <img src="{{ asset('assets') }}/admin/img/gunaydiin.png"style="height:75px;width:218px" >
+    <h1><a href="dashboard.html">Emlak Admin</a></h1>
+</div>
+    <!--close-Header-part-->
+    <!--top-Header-menu-->
+    <div id="user-nav" class="navbar navbar-inverse">
+        <ul class="nav">
+            <li class="" ><img src="{{ asset('uploads/images/'~ app.user.image)}}"  style="height: 38px " >
+            <li class="" >  <a href="#" class="d-block"> <i class="icon icon-user"></i>{{ app.user.name }} {{ app.user.surname }}  </a> </li>
+
+            <li class=""><a title="" href="{{ path('app_logout') }} "><i class="icon icon-share-alt"></i> <span
+                            class="text">Logout</span> </a> </li>
+
+            </li>
+
+
+            <li class=""><a title="" href="{{ path('setting_index') }}"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
+
+    </ul>
+    </div>
+
+
+
+
+
+

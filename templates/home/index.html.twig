@@ -1,0 +1,130 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ setting[0].title }} {% endblock %}
+{% block keywords %} {{ setting[0].keywords }}{% endblock %}
+{% block description %}{{ setting[0].description }} {% endblock %}
+
+ {% block slider %} {% include('home/slider.html.twig') %}  {% endblock %}
+
+{% block body %}
+    <!-- Call to Action Primary -->
+
+
+    <!-- Portfolio / Projects -->
+    <section class="page-section-no-padding">
+        <!-- /3 Column Portfolio -->
+        <div class="filter-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <h1>İlanlarımız</h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="portfolio-section port-col">
+
+            <div class="row">
+
+                <div class="isotopeContainer">
+                    {% for rs in emlaks %}
+
+
+                        <div class="col-md-4 isotopeSelector photography">
+                            <article class="">
+
+                                <figure>
+                                    <img src="{{ asset('uploads/images/' ~ rs.image) }}"
+                                         style="height: 450px; width: 625px" alt=""/>
+                                    <div class="overlay-background">
+                                        <div class="inner"></div>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="inner-overlay">
+                                            <div class="row margin-0 project-content">
+                                                <div class="col-md-12 info-head">
+                                                    <h3>{{ rs.title }}</h3>
+                                                    <h4>{{ rs.description }}</h4>
+                                                </div>
+
+                                                <div class="col-md-12 info">
+
+                                                    <p><a title="Home Image" class="fancybox-pop fancybox.image"
+                                                          href="{{ asset('uploads/images/' ~ rs.image) }}"><i
+                                                                    class="fa fa-search fa-border fa-2x"></i></a>
+                                                        <a title="Project Link"
+                                                           href="{{ path('emlak_show', {'id': rs.id}) }}"><i
+                                                                    class="fa fa-link fa-border fa-2x"></i></a></p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </figure>
+
+                            </article>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <h1>Yeni İlanlarımız</h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-section port-col">
+
+
+                <div class="row">
+                    {% for rs in newemlaks %}
+
+                        <div class="col-md-4 isotopeSelector photography illustrations">
+
+                            <article class="">
+                                <figure>
+                                    <img src="{{ asset('uploads/images/' ~ rs.image) }}"
+                                         style="height: 450px; width: 625px" alt=""/>
+                                    <div class="overlay-background">
+                                        <div class="inner"></div>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="inner-overlay">
+                                            <div class="row margin-0 project-content">
+                                                <div class="col-md-12 info-head">
+                                                    <h3>{{ rs.title }}</h3>
+                                                    <h4>{{ rs.description }}</h4>
+                                                </div>
+                                                <div class="col-md-12 info">
+
+                                                    <p><a title="Home Image" class="fancybox-pop fancybox.image"
+                                                          href="{{ asset('uploads/images/' ~ rs.image) }}"><i
+                                                                    class="fa fa-search fa-border fa-2x"></i></a>
+                                                        <a title="Project Link"
+                                                           href="{{ path('emlak_show', {'id': rs.id}) }}"><i
+                                                                    class="fa fa-link fa-border fa-2x"></i></a></p>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </figure>
+                            </article>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

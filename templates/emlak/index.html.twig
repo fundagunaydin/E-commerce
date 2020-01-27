@@ -1,0 +1,138 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ app.user.name }} Profile{% endblock %}
+
+{% block body %}
+
+    <SCRIPT language="JavaSript" type="text/javascript">
+        function openWin(windowURL, windowName, windowFeatures) {
+            window.open(windowURL, windowName, windowFeatures);
+        }
+
+
+    </SCRIPT>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Anasayfa</a></li>
+                        <li><a href="#">Kullanıcı</a></li>
+                        <li>İlanlarım</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>İlanlarım</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Right Sidebar Container  -->
+    <section class="page-section padding-30">
+        <div class="container">
+            <div class="row">
+                <!-- Content -->
+
+                <div class="col-md-9 col-md-push-3">
+                    <div class="blog-listing">
+                        <article>
+                            <div class="row-fluid">
+                                <br> <a href="{{ path('user_emlak_new') }}" class="btn btn-danger"> Create New
+                                    Home </a><br><br>
+
+                                <div class="widget-title bg_lg"><span class="icon"><i
+                                                class="icon-align-justify"></i></span>
+                                    <h5>User Home List</h5>
+
+                                </div>
+
+                                <hr class="title-underline">
+                                <p>
+
+                                <div class="widget-content nopadding">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Title</th>
+                                            <th>Image</th>
+                                            <th>Star</th>
+                                            <th>Address</th>
+                                            <th>Phone</th>
+                                            <th>City</th>
+                                            <th>Country</th>
+                                            <th>I.Gallery</th>
+                                            <th>Status</th>
+                                            <th>Detail</th>
+                                            <th>Show</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for emlak in emlaks %}
+                                            <tr>
+                                                <td>{{ emlak.id }}</td>
+                                                <td>{{ emlak.title }}</td>
+
+                                                <td><img src="{{ asset('uploads/images/' ~ emlak.image) }}"
+                                                         style="height:30px; "></td>
+                                                <td>{{ emlak.star }}</td>
+                                                <td>{{ emlak.address }}</td>
+                                                <td>{{ emlak.phone }}</td>
+                                                <td>{{ emlak.city }}</td>
+                                                <td>{{ emlak.country }}</td>
+                                                <td>
+                                                    <a href="javascript:openWin('{{ path('user_image_new', {'id':emlak.id }) }} ','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scroolBars=yes,resizable=no,width=500,height=500');">
+
+                                                        <img src="{{ asset('assets/admin/img') }}/gallery.png "
+                                                             style="height:50px;">
+                                                    </a>
+                                                </td>
+
+                                                <td>{{ emlak.status }}</td>
+                                                <td>
+                                                    <a href="javascript:openWin('{{ path('user_detail', {'id':emlak.id }) }} ','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scroolBars=yes,resizable=no,width=500,height=500');">
+                                                        <i class="fa fa-address-card fa-2x"></i>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ path('user_emlak_show', {'id': emlak.id}) }}"
+                                                       class="btn  btn-success"> Show </a>
+
+                                                </td>
+                                                <td>
+                                                    <a href="{{ path('user_emlak_edit', {'id': emlak.id}) }}"
+                                                       class="btn  btn-info"> Edit </a>
+
+                                                </td>
+                                                <td>
+
+                                                    {{ include('emlak/_delete_form.html.twig') }}
+                                                </td>
+                                            </tr>
+                                        {% else %}
+
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </div>
+
+                {{ include('user/usermenu.html.twig') }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

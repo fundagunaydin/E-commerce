@@ -1,0 +1,76 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+
+
+    <!--main-container-part-->
+    <div id="content">
+        <!--breadcrumbs-->
+        <div id="content-header">
+            <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+                    Home</a><a href="#">Comment</a></div>
+        </div>
+        <!--End-breadcrumbs-->
+
+        <div class="row-fluid">
+            <div class="widget-title bg_lg"><span class="icon"><i class="icon-align-justify"></i></span>
+                <h5>Comment List</h5>
+            </div>
+            <div class="widget-content nopadding">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Subject</th>
+                        <th>Comment</th>
+                        <th>Status</th>
+                        <th>Ip</th>
+                        <th>User</th>
+                        <th>İlan</th>
+                        <th>Created_at</th>
+                        <th>Rate</th>
+                        <th>Show</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for comment in comments %}
+                        <tr>
+                            <td>{{ comment.id }}</td>
+                            <td>{{ comment.subject }}</td>
+                            <td>{{ comment.comment }}</td>
+                            <td>{{ comment.status }}</td>
+                            <td>{{ comment.ip }}</td>
+                            <td>
+                                <a href="{{ path('admin_user_show', {'id': comment.userid}) }}">{{ comment.name }}{{ comment.surname }}</a>
+                            </td>
+                            <td><a href="{{ path('admin_emlak_show', {'id': comment.emlakid}) }}">{{ comment.title }}</a>
+                            </td>
+                            <td>{{ comment.created_at }}</td>
+                            <td>{{ comment.rate }}</td>
+                            <td>
+                                <a href="{{ path('admin_comment_show', {'id': comment.id}) }}" class="btn  btn-success">Show</a>
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_comment_edit', {'id': comment.id}) }}" class="btn  btn-info">Edit</a>
+                            </td>
+                            <td>
+                                {{ include('admin/comment/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="10">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

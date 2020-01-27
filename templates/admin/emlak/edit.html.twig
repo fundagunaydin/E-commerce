@@ -1,0 +1,44 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Emlak List {% endblock %}
+
+{% block body %}
+
+
+    <link rel="stylesheet" href="{{ asset('assets') }}/admin/css/bootstrap-wysihtml5.css"/>
+
+    <link href="{{ asset('assets') }}/admin/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+
+
+    <div id="content">
+        <!--breadcrumbs-->
+        <div id="content-header">
+            <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+                    Home</a> <a href="{{ path('admin_emlak_index') }}">Emlak</a> <a href="#">Edit</a></div>
+        </div>
+        <!--End-breadcrumbs-->
+        <div class="row-fluid">
+            <div class="span12">
+
+                <h5>Edit Page </h5>
+                <div class="span12">
+
+                    {{ include('admin/emlak/_form.html.twig', {'button_label': 'Update'}) }}<br><br>
+                </div>
+
+
+                </div><br><br>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('assets') }}/admin/js/jquery.min.js"></script>
+    <script src="{{ asset('assets') }}/admin/js/wysihtml5-0.3.0.js"></script>
+    <script src="{{ asset('assets') }}/admin/js/bootstrap-wysihtml5.js"></script>
+    <script>
+        $('.textarea_editor').wysihtml5();
+    </script>
+
+{% endblock %}
+

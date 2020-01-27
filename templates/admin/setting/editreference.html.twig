@@ -1,0 +1,38 @@
+{% block head %}{% include('admin/head.html.twig') %}{% endblock %}
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/bootstrap-wysihtml5.css"/>
+
+<div id="content"><br>
+
+<form method="post" >
+
+    <div class="span12">
+        <label class="col-form-label col-sm-2">Reference</label>
+
+        <div class="span10">
+            <input type="text" id="setting_email" name="email" value="{{ setting.email }}">
+            <textarea id="setting_reference" name="reference"  class="textarea_editor span12" rows="10"/>
+                {{ setting.reference }}
+            </textarea>
+        </div>
+    </div>
+    <input type="submit" value="KAYDET">
+</form>
+</div>
+</div>
+
+
+<script src="{{ asset('assets') }}/admin/js/jquery.min.js"></script>
+<script src="{{ asset('assets') }}/admin/js/wysihtml5-0.3.0.js"></script>
+<script src="{{ asset('assets') }}/admin/js/bootstrap-wysihtml5.js"></script>
+<script>
+    $('.textarea_editor').wysihtml5();
+</script>
+<script>
+    tinymce.init({
+        selector: '#mytextarea'
+    });
+</script>
+
+

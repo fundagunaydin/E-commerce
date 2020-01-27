@@ -1,0 +1,23 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Category Page{% endblock %}
+
+{% block body %}
+
+    <div id="content">
+        <!--breadcrumbs-->
+        <div id="content-header">
+            <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+                    Home</a> <a href="{{ path('category_index') }}">Category</a> <a href="#" class="current">Edit</a></div>
+        </div>
+        <!--End-breadcrumbs-->
+        <div class="row-fluid">
+
+            {{ include('admin/category/_form.html.twig', {'button_label': 'Update'}) }}
+            <br>
+
+        </div>
+    </div>
+
+
+{% endblock %}

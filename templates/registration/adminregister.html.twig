@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <title>Günaydın İnşaat Kayıt</title><meta charset="UTF-8" />
+       {% include('admin/head.html.twig') %}
+
+    </head>
+    <body>
+        <div id="loginbox">
+           
+
+        <div class="control-group normal_text normal">
+
+
+        <form method="post" >
+
+                 <div class="control-group normal_text"> <h3><img src="{{asset('assets') }}/admin/img/gunaydiin.png" style="height:75px;width:218px" alt="Logo" /></h3></div>
+                 {{ form_start(registrationForm) }}
+
+                 {{ form_widget(registrationForm) }}
+                  <div class="form-actions">
+                  <div class="col-md-2">
+                      <button class="btn  btn-success">{{ button_label|default('Save') }}</button>
+                </div>
+                <input type="hidden" name="_csrf_token"
+                         value="{{ csrf_token('authenticate') }}"
+                 >
+                  {{ form_end(registrationForm) }}
+
+                </div>
+            </form>
+        </div>
+        </div>
+        <script src="{{asset('assets') }}/admin/js/jquery.min.js"></script> 
+ 
+        <script src="{{asset('assets') }}/admin/js/matrix.login.js"></script> 
+
+    </body>
+
+</html>
+
+
+
+

@@ -1,0 +1,98 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Emlak List{% endblock %}
+
+{% block body %}
+    <SCRIPT language="JavaSript" type="text/javascript">
+        function openWin(windowURL, windowName, windowFeatures) {
+            window.open(windowURL, windowName, windowFeatures);
+        }
+    </SCRIPT>
+    <!--main-container-part-->
+    <div id="content">
+        <!--breadcrumbs-->
+        <div id="content-header">
+            <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+                    Home</a> <a href="#">İlanlar</a></div>
+        </div>
+        <!--End-breadcrumbs-->
+        <!--Chart-box-->
+        <div class="row-fluid">
+            <br> <a href="{{ path('admin_emlak_new') }}" class="btn btn-danger"> Create New Home </a><br><br>
+            <div class="widget-title bg_lg"><span class="icon"><i class="icon-align-justify"></i></span>
+                <h5>Emlak Index</h5>
+            </div>
+            <div class="widget-content nopadding">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Category</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Star</th>
+                        <th>City</th>
+                        <th>Phone</th>
+                        <th>User</th>
+                        <th>Price</th>
+                        <th>I.Gallery</th>
+                        <th>Status</th>
+                        <th>Details</th>
+                        <th>Show</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for emlak in emlaks %}
+                        <tr>
+                            <td>{{ emlak.id }}</td>
+                            <td>{{ emlak.catname }}</td>
+                            <td>{{ emlak.title }}</td>
+                            <td><img src="{{ asset('uploads/images/' ~ emlak.image) }}" style="height:30px; "></td>
+                            <td>{{ emlak.star }}</td>
+                            <td>{{ emlak.city }}</td>
+                            <td>{{ emlak.phone }}</td>
+                            <td><a href="{{ path('admin_user_show', {'id': emlak.userid}) }}">
+                                {{ emlak.name }}{{ emlak.surname }}</td>
+                            </a>
+                            <td>{{ emlak.price }}</td>
+                            <td>
+                                <a href="javascript:openWin('{{ path('admin_image_new', {'id':emlak.id }) }} ','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scroolBars=yes,resizable=no,width=500,height=500');">
+
+                                    <img src="{{ asset('assets/admin/img') }}/gallery.png " style="height:50px;">
+                                </a>
+                            </td>
+                            <td>{{ emlak.status }}</td>
+                            <td>
+                                <a href="javascript:openWin('{{ path('admin_detail', {'id':emlak.id }) }} ','','toolbar=no,location=no,directories=0,status=no,top=50,left=100,menuBar=no,scroolBars=yes,resizable=no,width=500,height=500');">
+                                    <i class="fa fa-address-card fa-2x"></i>
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_emlak_show', {'id': emlak.id}) }}" class="btn  btn-success">
+                                    Show </a>
+
+                            </td>
+                            <td>
+                                <a href="{{ path('admin_emlak_edit', {'id': emlak.id}) }}" class="btn  btn-info">
+                                    Edit </a>
+
+                            </td>
+                            <td>
+
+                                {{ include('admin/emlak/_delete_form.html.twig') }}
+                            </td>
+                        </tr>
+                    {% else %}
+
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+

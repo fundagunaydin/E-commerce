@@ -1,0 +1,18 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New Messages{% endblock %}
+
+{% block body %}
+    <div id="content">
+
+        <div id="content-header">
+            <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+                    Home</a> <a href="#">Contact Form Messages</a> <a href="#" class="current">New</a></div>
+        </div>
+        <div class="span12">
+            <h1>Create new Messages</h1>
+            {{ include('admin/messages/_form.html.twig') }}
+
+        </div>
+    </div>
+{% endblock %}

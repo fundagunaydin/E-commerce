@@ -1,0 +1,58 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}Kullanıcı Girişi{% endblock %}
+
+{% block body %}
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="index.html">AnaSayfa</a></li>
+                    <li><a href="#">Kullanıcı</a></li>
+                    <li>Giriş Yap</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Giriş Yap</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form method="post" action="/login">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    {% if app.user %}
+
+        <div class="col-md-5">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+
+    {% endif %}
+    <div class="container">
+        <h1 class="">Lütfen Giriş Yapınız</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="inputEmail">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
+                       required
+                       autofocus>
+                <label for="inputPassword">Şifre</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            </div>
+        </div>
+        <br>
+
+        <input type="submit" value="Giriş Yap " class="btn btn-primary"/> </span>
+        </form></div>
+    <br><br>
+    </form>
+
+    {% endblock %}

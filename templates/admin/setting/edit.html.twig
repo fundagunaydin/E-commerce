@@ -1,0 +1,43 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Edit Setting{% endblock %}
+
+	{% block body %}
+
+      <link rel="stylesheet" href="{{ asset('assets') }}/admin/css/bootstrap-wysihtml5.css"/>
+
+      <link href="{{ asset('assets') }}/admin/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+
+
+      <!--main-container-part-->
+        <div id="content">
+            <!--breadcrumbs-->
+            <div id="content-header">
+                <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>
+                        Home</a> <a href="{{ path('setting_index') }}">Setting</a> <a href="#" class="current">Edit</a></div>
+            </div>
+            <!--End-breadcrumbs-->
+
+            <div class="row-fluid">
+                <div class="span12">
+
+                    <div class="widget-box">
+
+                        <div class="widget-title bg_lg"><span class="icon"><i class="icon-align-justify"></i></span>
+                            <h5>Setting Page</h5>
+                        </div>
+
+                        <div class="span12">
+                        {{ include('admin/setting/_form.html.twig', {'button_label': 'Update'}) }}
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    {% endblock %}

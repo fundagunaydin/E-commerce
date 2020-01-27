@@ -1,0 +1,75 @@
+
+<div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+          <h5>New Category</h5>
+        </div>
+        <div class="widget-content nopadding">
+          <form name="category"  method="post" class="form-horizontal" >
+            <div class="control-group">
+              <label class="control-label">Parent:</label>
+              <div class="controls">
+                <select id="category_parentid" name="category[parentid]" class="span11" >
+
+                	<option value="0">  Main Category </option>
+
+                	   {% for cat in categories %}
+                		  <option value="{{cat.id}}" {{ cat.id==category.parentid ? 'Selected': '' }}> {{cat.title}} </option>   {% endfor %}
+                </select>
+
+              </div>
+            </div>
+            
+            <div class="control-group">
+              <label class="control-label">Category Name:</label>
+              <div class="controls">
+                <input type="text" id="category_title" name="category[title]"  value="{{ category.title }}" required="required" class="span11" placeholder="Category Name">
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Description</label>
+              <div class="controls">
+                <input type="text"  id="category_description" name="category[description]"  maxlength="255" value="{{ category.description }}" class="span11" >
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Category Keywords</label>
+              <div class="controls">
+                <input type="text" id="category_keywords" name="category[keywords]" maxlength="255" value="{{ category.keywords }}"  class="span11" >
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label">Status</label>
+              <div class="controls">
+                <select id="category_status" name="category[status]"  class="span11"> 
+                <option>{{  category.status  }}</option>
+                <option>True</option>
+                <option>False</option>
+
+                  </select>
+              </div>
+
+            </div>
+
+
+
+            <div class="control-group">
+              <label class="control-label"> İmage</label>
+              <div class="controls">
+              	 <input type="text" id="category_image" name="category[image]"   class="span11">
+
+                
+              </div>
+              <input type="hidden" id="category__token" name="category[_token]" value="3xJpkVzhRQO8UGT-nymxLBoTLTHeAXgOzlPB-uq4nXw" >
+            </div>
+
+            <div class="span11">
+              <button type="submit" class="btn  btn-block btn-large btn-success">Save</button>
+            </div>
+
+
+          </form>
+        </div>
+      </div>

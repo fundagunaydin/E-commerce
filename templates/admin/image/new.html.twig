@@ -1,0 +1,75 @@
+
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/bootstrap.min.css" />
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/colorpicker.css" />
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/datepicker.css" />
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/uniform.css" />
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/select2.css" />
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/matrix-style.css" />
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/matrix-media.css" />
+<link rel="stylesheet" href="{{ asset('assets') }}/admin/css/bootstrap-wysihtml5.css" />
+<link href="{{ asset('assets') }}/admin/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<div class="widget-box">
+    <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+        <h5>Gallery</h5>
+    </div>
+    <div class="widget-content nopadding">
+        <div class="form-actions">
+            {{ include('admin/image/_form.html.twig') }}
+        </div>
+
+    </div>
+</div>
+<div class="widget-box">
+    <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+        <h5>Gallery List</h5>
+    </div>
+    <div class="widget-content nopadding">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>İmage</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for image in images | reverse %}
+                <tr>
+                    <td>{{image.id}}</td>
+                    <td>{{ image.title }}</td>
+                    <td><img src="{{asset('uploads/images/' ~ image.image) }}" style="heigth:40;width:40;" >
+                    </td>
+                    <td>
+                        <form method="post" action="{{ path('admin_image_delete', {'id': image.id,'eid':id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ image.id) }}">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+
+
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="{{ asset('assets') }}/admin/js/jquery.min.js"></script>
+<script src="{{ asset('assets') }}/admin/js/jquery.ui.custom.js"></script>
+<script src="{{ asset('assets') }}/admin/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets') }}/admin/js/bootstrap-colorpicker.js"></script>
+<script src="{{ asset('assets') }}/admin/js/bootstrap-datepicker.js"></script>
+<script src="{{ asset('assets') }}/admin/js/jquery.toggle.buttons.js"></script>
+<script src="{{ asset('assets') }}/admin/js/masked.js"></script>
+<script src="{{ asset('assets') }}/admin/js/jquery.uniform.js"></script>
+<script src="{{ asset('assets') }}/admin/js/select2.min.js"></script>
+<script src="{{ asset('assets') }}/admin/js/matrix.js"></script>
+<script src="{{ asset('assets') }}/admin/js/matrix.form_common.js"></script> 

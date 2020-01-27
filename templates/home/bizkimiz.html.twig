@@ -1,0 +1,75 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}Biz Kimiz {{ setting[0].title }} {% endblock %}
+{% block keywords %} {{ setting[0].keywords }}{% endblock %}
+{% block description %}{{ setting[0].description }} {% endblock %}
+
+
+{% block body %}
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="/">AnaSayfa</a></li>
+                        <li><a href="#">Kurumsal</a></li>
+                        <li>Biz Kimiz</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Biz Kimiz</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Features -->
+    <section class="page-section padding-30">
+        <div class="container">
+            <div class="row">
+                <!-- Content -->
+                <div class="col-md-9">
+                    <div class="blog-listing">
+                        <article>
+
+                        </article>
+                    </div>
+                </div>
+                <div class="post-block post-author clearfix">
+                    <h3 class="heading-primary"><i class="fa fa-user"></i>Kurucular</h3>
+                    <div class="author-details">
+                        <img src="{{ asset('assets') }}/img/babam.jpg" alt="" class="img-thumbnail pull-left">
+                        <p><strong class="name"><a href="#">Mustafa GÜNAYDIN</a></strong></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui. </p>
+                    </div>
+                </div>
+                <div class="post-block post-author clearfix">
+
+                    <div class="author-details">
+                        <img  src="{{ asset('assets') }}/img/amcam.jpg" alt="" class="img-thumbnail pull-left">
+                        <p><strong class="name"><a href="#">Hasan GÜNAYDIN</a></strong></p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui. </p>
+                    </div>
+                </div>
+
+
+
+
+
+                    </div>
+                    </div>
+    </section>
+
+
+    <!-- Loads Bootstrap Main JS -->
+    <script src="{{ 'assets' }}/bootstrap/js/bootstrap.min.js"></script>
+    <meta name="author" content="Andreas Lautenschlager - www.lautenschlager.de">
+
+
+
+{% endblock %}

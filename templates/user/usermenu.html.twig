@@ -1,0 +1,24 @@
+<div class="col-md-3 col-md-pull-9">
+    <aside class="sidebar">
+        <div class="widget">
+
+            <h4 class="sidebar-header" >Kullanıcı Menüsü</h4>
+            <img src="{{ asset('uploads/images/'~ app.user.image)}}"  style="height: 75px"  class="img-circle">
+            {{ app.user.name }}
+            {{ app.user.surname }}
+        </div>
+
+        <div class="widget">
+
+            <h4 class="sidebar-header">Kategoriler</h4>
+            <ul class="nav nav-list">
+                <li><a href="/user"><b class="caret-right"></b> Profilim</a></li>
+                <li><a href="/user/emlak"><b class="caret-right"></b> İlanlarım</a></li>
+                <li><a href="/user/comments"><b class="caret-right"></b> Yorumlarım</a></li>
+
+                <li><a href="/logout"><b class="caret-right"></b>Çıkış Yap</a></li>
+
+        </div>
+
+    </aside>
+</div>

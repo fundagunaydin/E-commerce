@@ -1,0 +1,65 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Messages{% endblock %}
+
+{% block body %}
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="{{ path('admin_comment_index') }}">Comment</a> <a href="#" class="current">Comment Detail</a> </div>
+    </div>
+    <!--End-breadcrumbs-->
+    <!--Chart-box-->
+    <div class="row-fluid">
+
+        <div class="widget-title bg_lg"><span class="icon"><i class="icon-align-justify"></i></span>
+            <h5>Comment Detail </h5>
+
+        </div>
+
+    </div>
+
+    <div class="widget-content nopadding">
+        <table class="table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ comment.id }}</td>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <td>{{ comment.subject }}</td>
+            </tr>
+            <tr>
+                <th>Comment</th>
+                <td>{{ comment.comment }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ comment.status }}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ comment.ip }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ comment.userid }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ comment.createdAt ? comment.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ comment.updatedAt ? comment.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Rate</th>
+                <td>{{ comment.rate }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+    {% endblock %}

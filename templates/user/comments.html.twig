@@ -1,0 +1,180 @@
+{% extends 'homebase.html.twig' %}
+
+{% block title %}{{ app.user.name }} Profil{% endblock %}
+
+{% block body %}
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">AnaSayfa</a></li>
+                        <li><a href="#">Kullanıcı</a></li>
+                        <li>Yorumlarım</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Yorumlarım</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Right Sidebar Container  -->
+    <section class="page-section padding-30">
+        <div class="container">
+            <div class="row">
+                <!-- Content -->
+
+                <div class="col-md-9 col-md-push-3">
+                    <div class="blog-listing">
+                        <article>
+                            <h2>Yorumlar</h2>
+                            <hr class="title-underline">
+                            <p>
+
+                            <div class="widget-content nopadding">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Subject</th>
+                                        <th>Comment</th>
+                                        <th>Status</th>
+                                        <th>İlan</th>
+                                        <th>Created_at</th>
+                                        <th>Rate</th>
+                                        <th>Show</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for comment in comments %}
+                                        <tr>
+                                            <td>{{ comment.id }}</td>
+                                            <td>{{ comment.subject }}</td>
+                                            <td>{{ comment.comment }}</td>
+                                            <td>{{ comment.status }}</td>
+                                            <td>
+                                                <a href="{{ path('emlak_show', {'id': comment.emlakid}) }}">{{ comment.title }}</a>
+                                            </td>
+                                            <td>{{ comment.created_at }}</td>
+                                            <td>{{ comment.rate }}</td>
+                                            <td>
+                                                <a href="{{ path('admin_comment_show', {'id': comment.id}) }}"
+                                                   class="btn  btn-success">Show</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('admin_comment_edit', {'id': comment.id}) }}"
+                                                   class="btn  btn-info">Edit</a>
+                                            </td>
+                                            <td>
+                                                {{ include('admin/comment/_delete_form.html.twig') }}
+                                            </td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td colspan="10">no records found</td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            </p>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+                <!-- Sidebar -->
+
+                {{ include('user/usermenu.html.twig') }}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER 1 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 ">
+                    <div>
+                        <a href="index.html">
+                            <img class="footer-logo" src="img/logo-footer.png" alt="logo">
+                        </a>
+                    </div>
+                    <div>
+                        <address class="margin-bottom-30">
+                            <p>Samplestreet 3<br/>
+                                34117 Kassel<br/>
+                                Germany</p>
+                        </address>
+                    </div>
+                    <div class="margin-bottom-30">
+                        <p><i class="fa fa-phone"></i> +49 561 00 00 00 00
+                            <br/>
+                            <i class="fa fa-fax"></i> +49 561 00 00 00 00</p>
+                    </div>
+                    <div>
+                        <a href="https://lautenschlager.de">www.lautenschlager.de</a>
+                        <br/>
+                        <a href="mailto:info@lautenschlager.de">info@lautenschlager.de</a>
+                    </div>
+                </div>
+                <div class="col-md-3 footer-menu">
+                    <h4>About Us</h4>
+                    <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim
+                        placerat facer possim assum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+                        ut laoreet dolore magna aliquam erat volutpat. </p>
+                    <a href="about-us.html">
+                        <button class="btn btn-primary">Read More</button>
+                    </a>
+                </div>
+                <div class="col-md-3 footer-blog">
+                    <h4>RECENT BLOG POSTS</h4>
+                    <ul>
+                        <li><a href="#">Blog Entry 1<br/></a> <a href="#">February 10 / John Doe </a></li>
+                        <li><a href="#">Blog Entry 2<br/></a> <a href="#">March 14 / Jane Doe </a></li>
+                        <li><a href="#">Blog Entry 3<br/></a> <a href="#">April 06 / Jenny Doe </a></li>
+                        <li><a href="#">Blog Entry 4<br/></a> <a href="#">June 25 / James Doe </a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3  footer-menu">
+                    <h4>NAVIGATE</h4>
+                    <ul>
+                        <a href="index.html">
+                            <li>Home</li>
+                        </a>
+                        <a href="about-me.html">
+                            <li>About Me</li>
+                        </a>
+                        <a href="about-us.html">
+                            <li>About Us</li>
+                        </a>
+                        <a href="our-team.html">
+                            <li>Our Team</li>
+                        </a>
+                        <a href="blog-right-sidebar.html">
+                            <li>Blog</li>
+                        </a>
+                        <a href="contact.html">
+                            <li>Contact</li>
+                        </a>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

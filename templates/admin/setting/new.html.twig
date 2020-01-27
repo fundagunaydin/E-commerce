@@ -1,0 +1,39 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}New Setting{% endblock %}
+
+{% block body %}
+
+    <link rel="stylesheet" href="{{ asset('assets') }}/admin/css/bootstrap-wysihtml5.css"/>
+
+    <link href="{{ asset('assets') }}/admin/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+
+<!--main-container-part-->
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb"><a href="/admin" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+        </div>
+    </div>
+    <!--End-breadcrumbs-->
+    <div class="row-fluid">
+        <div class="span12">
+            <h1>Create new Setting</h1>
+            <div class="span12">
+                {{ include('admin/setting/_form.html.twig') }}
+            </div>
+
+        </div>
+    </div>
+        </div>
+
+    <script src="{{ asset('assets') }}/admin/js/jquery.min.js"></script>
+    <script src="{{ asset('assets') }}/admin/js/wysihtml5-0.3.0.js"></script>
+    <script src="{{ asset('assets') }}/admin/js/bootstrap-wysihtml5.js"></script>
+    <script>
+        $('.textarea_editor').wysihtml5();
+    </script>
+
+        {% endblock %}
+
+
